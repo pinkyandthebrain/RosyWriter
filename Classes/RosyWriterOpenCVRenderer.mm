@@ -229,9 +229,12 @@ void debugSquares( std::vector<std::vector<cv::Point> > squares, cv::Mat image )
     //Draw the rectangle on the original image
     cv::Mat tempImage;
     image.copyTo(tempImage);
-    cv::rectangle(tempImage, outsideRect.tl(), outsideRect.br(), cv::Scalar(0,255,0,0.3), cv::FILLED, 8, 0);
+    cv::rectangle(tempImage, outsideRect.tl(), outsideRect.br(), cv::Scalar(63,0,77), cv::FILLED, 8, 0);
     //Blend the rectangle with the original image to get the transparency
-    cv::addWeighted(tempImage, 0.4, image, 1, 1, image);
+    cv::addWeighted(tempImage, 0.6, image, 1, 1, image);
+    
+    //Draw a thick outside border
+     cv::rectangle(tempImage, outsideRect.tl(), outsideRect.br(), cv::Scalar(63,0,77), 10, 8, 0);
 #endif //SHOW_GRAYFRAME
     
 }
