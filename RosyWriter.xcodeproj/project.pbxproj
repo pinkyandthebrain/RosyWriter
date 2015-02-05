@@ -706,7 +706,16 @@
 				GCC_PREFIX_HEADER = "RosyWriter-Prefix.pch";
 				INFOPLIST_FILE = "RosyWriter-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				OTHER_CFLAGS = "-DUSE_OPENCV_RENDERER=1";
+				OTHER_CFLAGS = (
+					"-DUSE_OPENCV_RENDERER=1",
+					"-DSHOW_GRAYFRAME=0",
+					"-DDETECT_RECT=1",
+				);
+				OTHER_CPLUSPLUSFLAGS = (
+					"$(OTHER_CFLAGS)",
+					"-DSHOW_GRAYFRAME=0",
+					"-DDETECT_RECT=1",
+				);
 				PRODUCT_NAME = RosyWriterOpenCV;
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -729,7 +738,16 @@
 				GCC_PREFIX_HEADER = "RosyWriter-Prefix.pch";
 				INFOPLIST_FILE = "RosyWriter-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				OTHER_CFLAGS = "-DUSE_OPENCV_RENDERER=1";
+				OTHER_CFLAGS = (
+					"-DUSE_OPENCV_RENDERER=1",
+					"-DSHOW_GRAYFRAME=0",
+					"-DDETECT_RECT=1",
+				);
+				OTHER_CPLUSPLUSFLAGS = (
+					"$(OTHER_CFLAGS)",
+					"-DSHOW_GRAYFRAME=0",
+					"-DDETECT_RECT=1",
+				);
 				PRODUCT_NAME = RosyWriterOpenCV;
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
