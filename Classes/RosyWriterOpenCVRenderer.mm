@@ -53,11 +53,12 @@
 //	- Insert framework into project's Frameworks group
 //	- Make sure framework is included under the target's Build Phases -> Link Binary With Libraries.
 #import <opencv2/opencv.hpp>
+#import "globals.h"
+
 
 @implementation RosyWriterOpenCVRenderer
 
 #pragma mark RosyWriterRenderer
-
 - (BOOL)operatesInPlace
 {
     return YES;
@@ -80,6 +81,7 @@
 
 - (CVPixelBufferRef)copyRenderedPixelBuffer:(CVPixelBufferRef)pixelBuffer
 {
+    
     CVPixelBufferLockBaseAddress( pixelBuffer, 0 );
     
     unsigned char *base = (unsigned char *)CVPixelBufferGetBaseAddress( pixelBuffer );
@@ -226,6 +228,8 @@ void debugSquares( std::vector<std::vector<cv::Point> > squares, cv::Mat image )
         
     }
     
+    
+    
     //Draw the rectangle on the original image
     cv::Mat tempImage;
     image.copyTo(tempImage);
@@ -234,7 +238,26 @@ void debugSquares( std::vector<std::vector<cv::Point> > squares, cv::Mat image )
     cv::addWeighted(tempImage, 0.6, image, 1, 1, image);
     
     //Draw a thick outside border
-     cv::rectangle(tempImage, outsideRect.tl(), outsideRect.br(), cv::Scalar(63,0,77), 10, 8, 0);
+    cv::rectangle(tempImage, outsideRect.tl(), outsideRect.br(), cv::Scalar(63,0,77), 10, 8, 0);
+    
+    
+    
+    //if the percentage change in area of the intersected rectangle is less than 2%, then we've consistently detected the document. Just need to figure this shit out.
+    
+    if(outsideRect.area()!= 0 && capturedDocument==false){
+        if(fabs(((lastRect & outsideRect).area()-outsideRect.area())/outsideRect.area()) < 0.2 )
+        {
+            //Store the frame
+            
+            
+            capturedDocument = true;
+            
+            
+        }else{
+            lastRect = outsideRect;
+        }
+    }
+    
 #endif //SHOW_GRAYFRAME
     
 }

@@ -160,6 +160,7 @@
 		6FF11C9416A877B100E14D71 /* ShaderUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ShaderUtilities.h; path = Utilities/GL/ShaderUtilities.h; sourceTree = "<group>"; };
 		7214DBCD182AEF8900EA3F99 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = Resources/Images.xcassets; sourceTree = SOURCE_ROOT; };
 		84A31FA81A833271000431DD /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = opencv2.framework; sourceTree = "<group>"; };
+		84D304191A8AACB900F8D7E2 /* globals.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = globals.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -248,6 +249,7 @@
 		5DC09BF119B7F51B0025A16E /* Renderers */ = {
 			isa = PBXGroup;
 			children = (
+				84D304191A8AACB900F8D7E2 /* globals.h */,
 				5DC09BED19B7F1A70025A16E /* RosyWriterRenderer.h */,
 				6FE5A733160BAC8000F6DB2B /* RosyWriterOpenGLRenderer.h */,
 				6FE5A734160BAC8000F6DB2B /* RosyWriterOpenGLRenderer.m */,
